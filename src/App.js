@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import Amount from "./MyComponent";
+import { useState } from "react";
 
-function App() {
+const App = () => {
+  const [flip, setFlip] = useState(true);
+  const flipset = () => {
+    setFlip((current) => !current);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {flip === true ? <h1>리액트 입니다</h1> : <h1>리액트가 아닙니다</h1>}
+      <button onClick={flipset}>Fliper</button>
+      <Amount />
+    </>
   );
-}
+};
 
 export default App;
